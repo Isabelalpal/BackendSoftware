@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "monorepo": true,
+  "projects": {
+    "software-backend": {
+      "type": "application",
+      "root": "apps/software-backend",
+      "entryFile": "main",
+      "sourceRoot": "apps/software-backend/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/software-backend/tsconfig.app.json"
+      }
+    },
+    "usuarios": {
+      "type": "application",
+      "root": "apps/usuarios",
+      "entryFile": "main",
+      "sourceRoot": "apps/usuarios/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/usuarios/tsconfig.app.json"
+      }
+    },
+    "hoteles": {
+      "type": "application",
+      "root": "apps/hoteles",
+      "entryFile": "main",
+      "sourceRoot": "apps/hoteles/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/hoteles/tsconfig.app.json"
+      }
+    },
+    "entitys": {
+      "type": "library",
+      "root": "libs/entitys",
+      "entryFile": "index",
+      "sourceRoot": "libs/entitys/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/entitys/tsconfig.lib.json"
+      }
+    }
+  }
+}

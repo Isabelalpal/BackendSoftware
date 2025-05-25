@@ -1,0 +1,25 @@
+# Archivos a ignorar
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Dependencias
+node_modules/
+dist/
+build/
+coverage/
+
+# Editor/IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Sistema
+.DS_Store
+Thumbs.db

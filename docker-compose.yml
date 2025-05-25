@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  usuarios:
+    container_name: usuarios
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_DIR: apps/usuarios
+    ports:
+      - "3101:3000"
+    volumes:
+      - ./apps/usuarios:/app/apps/usuarios
+      - ./libs:/app/libs
+      - ./node_modules:/app/node_modules
+    working_dir: /app
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DEBUG=nest:*
+    networks:
+      - hotel-network
+    restart: unless-stopped
+    command: ["npm", "run", "start:nest:usuarios"]
+
+  hoteles:
+    container_name: hoteles
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_DIR: apps/hoteles
+    ports:
+      - "3102:3000"
+    volumes:
+      - ./apps/hoteles:/app/apps/hoteles
+      - ./libs:/app/libs
+      - ./node_modules:/app/node_modules
+    working_dir: /app
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DEBUG=nest:*
+    networks:
+      - hotel-network
+    restart: unless-stopped
+    command: ["npm", "run", "start:nest:hoteles"]
+
+networks:
+  hotel-network:
+    driver: bridge
